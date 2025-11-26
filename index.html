@@ -1,253 +1,225 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¿Quieres ser mi novia?</title>
     <!-- Tailwind CSS para estilos rápidos y responsivos -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Fuente bonita de Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-      body {
-        font-family: "Nunito", sans-serif;
-        overflow: hidden; /* Evitar scroll cuando el botón crece mucho */
-        background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-      }
-
-      h1,
-      .title-font {
-        font-family: "Pacifico", cursive;
-      }
-
-      /* Animación de fondo (Corazones flotantes) */
-      .hearts-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 0;
-        overflow: hidden;
-      }
-
-      .heart {
-        position: absolute;
-        bottom: -100px;
-        color: #ffb7b2;
-        opacity: 0.6;
-        animation: float 6s linear infinite;
-      }
-
-      @keyframes float {
-        0% {
-          transform: translateY(0) rotate(0deg);
-          opacity: 0.8;
+        body {
+            font-family: 'Nunito', sans-serif;
+            overflow: hidden; /* Evitar scroll cuando el botón crece mucho */
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
         }
-        100% {
-          transform: translateY(-120vh) rotate(360deg);
-          opacity: 0;
+
+        h1, .title-font {
+            font-family: 'Pacifico', cursive;
         }
-      }
 
-      /* Estilos para el botón SÍ para que la transición sea suave */
-      #yesBtn {
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      }
+        /* Animación de fondo (Corazones flotantes) */
+        .hearts-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
 
-      /* Contenedor principal */
-      .card-container {
-        backdrop-filter: blur(10px);
-        background: rgba(255, 255, 255, 0.8);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-      }
+        .heart {
+            position: absolute;
+            bottom: -100px;
+            color: #ffb7b2;
+            opacity: 0.6;
+            animation: float 6s linear infinite;
+        }
 
-      /* Ocultar elementos */
-      .hidden {
-        display: none;
-      }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Estilos para el botón SÍ para que la transición sea suave */
+        #yesBtn {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        /* Contenedor principal */
+        .card-container {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        /* Ocultar elementos */
+        .hidden {
+            display: none;
+        }
     </style>
-  </head>
-  <body
-    class="bg-pink-100 h-screen flex flex-col justify-center items-center relative select-none"
-  >
+</head>
+<body class="bg-pink-100 h-screen flex flex-col justify-center items-center relative select-none">
+
     <!-- Fondo de corazones generados por JS -->
     <div class="hearts-bg" id="heartsBg"></div>
 
     <!-- Contenedor Principal -->
-    <div
-      class="card-container z-10 p-8 rounded-3xl max-w-md w-full mx-4 text-center relative"
-    >
-      <!-- SECCIÓN 1: La Pregunta -->
-      <div id="askSection" class="flex flex-col items-center gap-6">
-        <!-- Gif tierno -->
-        <img
-          class="w-48 h-48 object-cover rounded-xl shadow-lg animate-bounce"
-          src="https://media.tenor.com/K215MK5d3CIAAAAj/cute-love.gif"
-          alt="Osito tierno preguntando"
-          onerror="this.src='https://placehold.co/200x200/pink/white?text=Te+Quiero';"
-        />
+    <div class="card-container z-10 p-8 rounded-3xl max-w-md w-full mx-4 text-center relative">
+        
+        <!-- SECCIÓN 1: La Pregunta -->
+        <div id="askSection" class="flex flex-col items-center gap-6">
+            <!-- Gif tierno -->
+            <img class="w-48 h-48 object-cover rounded-xl shadow-lg animate-bounce" 
+                 src="https://media.tenor.com/b_rlhykPQ4AAAAAj/love.gif" 
+                 alt="Osito tierno preguntando"
+                 onerror="this.src='https://placehold.co/200x200/pink/white?text=Te+Quiero';">
 
-        <h1 class="text-4xl text-pink-600 mb-2">¿Quieres ser mi novia?</h1>
-        <p class="text-gray-600 mb-4">Prometo hacerte muy feliz 💖</p>
+            <h1 class="text-4xl text-pink-600 mb-2">¿Quieres ser mi novia?</h1>
+            <p class="text-gray-600 mb-4">Prometo hacerte muy feliz 💖</p>
 
-        <div class="flex flex-wrap justify-center gap-4 items-center w-full">
-          <button
-            id="yesBtn"
-            class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full text-xl shadow-lg transform hover:scale-110"
-          >
-            SÍ 😍
-          </button>
-          <button
-            id="noBtn"
-            class="bg-red-400 hover:bg-red-500 text-white font-bold py-3 px-8 rounded-full text-xl shadow-lg transition-all duration-200"
-          >
-            No 😢
-          </button>
+            <div class="flex flex-wrap justify-center gap-4 items-center w-full">
+                <button id="yesBtn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full text-xl shadow-lg transform hover:scale-110">
+                    SÍ 😍
+                </button>
+                <button id="noBtn" class="bg-red-400 hover:bg-red-500 text-white font-bold py-3 px-8 rounded-full text-xl shadow-lg transition-all duration-200">
+                    No 😢
+                </button>
+            </div>
         </div>
-      </div>
 
-      <!-- SECCIÓN 2: El Mensaje de Éxito (Oculto al inicio) -->
-      <div
-        id="successSection"
-        class="hidden flex-col items-center gap-6 animate-fade-in-up"
-      >
-        <img
-          class="w-64 h-64 object-cover rounded-xl shadow-2xl"
-          src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
-          alt="Ositos besándose"
-          onerror="this.src='https://placehold.co/200x200/red/white?text=Te+Amo';"
-        />
+        <!-- SECCIÓN 2: El Mensaje de Éxito (Oculto al inicio) -->
+        <div id="successSection" class="hidden flex-col items-center gap-6 animate-fade-in-up">
+            <img class="w-64 h-64 object-cover rounded-xl shadow-2xl" 
+                 src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" 
+                 alt="Ositos besándose"
+                 onerror="this.src='https://placehold.co/200x200/red/white?text=Te+Amo';">
+            
+            <h1 class="text-5xl text-red-500 title-font font-bold">¡TE AMO! ❤️</h1>
+            <p class="text-xl text-gray-700">Sabía que dirías que sí. ¡Eres lo mejor que me ha pasado!</p>
+            <p class="text-sm text-gray-400 mt-4">(Mándame captura de esto 😉)</p>
+        </div>
 
-        <h1 class="text-5xl text-red-500 title-font font-bold">¡TE AMO! ❤️</h1>
-        <p class="text-xl text-gray-700">
-          Sabía que dirías que sí. ¡Eres lo mejor que me ha pasado!
-        </p>
-        <p class="text-sm text-gray-400 mt-4">(Mándame captura de esto 😉)</p>
-      </div>
     </div>
 
     <!-- Canvas para el confeti -->
-    <canvas
-      id="confetti"
-      class="absolute top-0 left-0 w-full h-full pointer-events-none z-50"
-    ></canvas>
+    <canvas id="confetti" class="absolute top-0 left-0 w-full h-full pointer-events-none z-50"></canvas>
 
     <script>
-      // Lógica del Botón NO y SÍ
-      const yesBtn = document.getElementById("yesBtn");
-      const noBtn = document.getElementById("noBtn");
-      const askSection = document.getElementById("askSection");
-      const successSection = document.getElementById("successSection");
-      const heartsBg = document.getElementById("heartsBg");
+        // Lógica del Botón NO y SÍ
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const askSection = document.getElementById('askSection');
+        const successSection = document.getElementById('successSection');
+        const heartsBg = document.getElementById('heartsBg');
 
-      // Frases para convencerla cuando pulse NO
-      const frases = [
-        "¿Estás segura?",
-        "¿De verdad?",
-        "¡Piénsalo bien!",
-        "Mira que te pierdes de mis besos",
-        "¡No seas así!",
-        "¿Por favorcito?",
-        "Me vas a romper el corazón 💔",
-        "¡Voy a llorar!",
-        "No acepto un no por respuesta",
-        "Anda, di que sí",
-      ];
+        // Frases para convencerla cuando pulse NO
+        const frases = [
+            "¿Estás segura?",
+            "¿De verdad?",
+            "¡Piénsalo bien!",
+            "Mira que te pierdes de mis besos",
+            "¡No seas así!",
+            "¿Por favorcito?",
+            "Me vas a romper el corazón 💔",
+            "¡Voy a llorar!",
+            "No acepto un no por respuesta",
+            "Anda, di que sí"
+        ];
 
-      let scale = 1;
-      let fraseIndex = 0;
+        let scale = 1;
+        let fraseIndex = 0;
 
-      // Evento Botón NO
-      noBtn.addEventListener("click", () => {
-        // Aumentar tamaño del botón SÍ
-        scale += 0.5; // Crece un 50% cada vez
-        yesBtn.style.transform = `scale(${scale})`;
+        // Evento Botón NO
+        noBtn.addEventListener('click', () => {
+            // Aumentar tamaño del botón SÍ
+            scale += 0.5; // Crece un 50% cada vez
+            yesBtn.style.transform = `scale(${scale})`;
+            
+            // Cambiar texto del botón NO
+            noBtn.innerText = frases[fraseIndex];
+            fraseIndex = (fraseIndex + 1) % frases.length;
 
-        // Cambiar texto del botón NO
-        noBtn.innerText = frases[fraseIndex];
-        fraseIndex = (fraseIndex + 1) % frases.length;
-
-        // Hacer el botón NO un poco más pequeño visualmente o moverlo
-        // Opcional: moverlo aleatoriamente para hacerlo "difícil"
-        // const randomX = Math.random() * 50 - 25;
-        // noBtn.style.transform = `translateX(${randomX}px)`;
-      });
-
-      // Evento Botón SÍ
-      yesBtn.addEventListener("click", () => {
-        askSection.classList.add("hidden");
-        successSection.classList.remove("hidden");
-        successSection.style.display = "flex"; // Forzar display flex
-        launchConfetti();
-      });
-
-      // Generar Corazones en el fondo
-      function createHearts() {
-        for (let i = 0; i < 20; i++) {
-          const heart = document.createElement("div");
-          heart.classList.add("heart");
-          heart.innerHTML = "❤️";
-          heart.style.left = Math.random() * 100 + "vw";
-          heart.style.animationDuration = Math.random() * 3 + 3 + "s"; // Entre 3 y 6 segundos
-          heart.style.fontSize = Math.random() * 20 + 20 + "px";
-          heartsBg.appendChild(heart);
-        }
-      }
-      createHearts();
-
-      // Lógica simple de Confeti
-      const canvas = document.getElementById("confetti");
-      const ctx = canvas.getContext("2d");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      let particles = [];
-
-      function launchConfetti() {
-        for (let i = 0; i < 150; i++) {
-          particles.push({
-            x: window.innerWidth / 2,
-            y: window.innerHeight / 2,
-            w: Math.random() * 10 + 5,
-            h: Math.random() * 10 + 5,
-            dx: Math.random() * 10 - 5,
-            dy: Math.random() * 10 - 5,
-            color: `hsl(${Math.random() * 360}, 100%, 50%)`,
-            gravity: 0.1,
-          });
-        }
-        animateConfetti();
-      }
-
-      function animateConfetti() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach((p, index) => {
-          p.x += p.dx;
-          p.y += p.dy;
-          p.dy += p.gravity; // Gravedad
-          ctx.fillStyle = p.color;
-          ctx.fillRect(p.x, p.y, p.w, p.h);
-
-          if (p.y > canvas.height) particles.splice(index, 1);
+            // Hacer el botón NO un poco más pequeño visualmente o moverlo
+            // Opcional: moverlo aleatoriamente para hacerlo "difícil"
+            // const randomX = Math.random() * 50 - 25;
+            // noBtn.style.transform = `translateX(${randomX}px)`;
         });
 
-        if (particles.length > 0) {
-          requestAnimationFrame(animateConfetti);
-        }
-      }
+        // Evento Botón SÍ
+        yesBtn.addEventListener('click', () => {
+            askSection.classList.add('hidden');
+            successSection.classList.remove('hidden');
+            successSection.style.display = 'flex'; // Forzar display flex
+            launchConfetti();
+        });
 
-      // Redimensionar canvas si cambia la ventana
-      window.addEventListener("resize", () => {
+        // Generar Corazones en el fondo
+        function createHearts() {
+            for(let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 3 + 3 + 's'; // Entre 3 y 6 segundos
+                heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+                heartsBg.appendChild(heart);
+            }
+        }
+        createHearts();
+
+        // Lógica simple de Confeti
+        const canvas = document.getElementById('confetti');
+        const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-      });
+
+        let particles = [];
+
+        function launchConfetti() {
+            for(let i=0; i<150; i++) {
+                particles.push({
+                    x: window.innerWidth / 2,
+                    y: window.innerHeight / 2,
+                    w: Math.random() * 10 + 5,
+                    h: Math.random() * 10 + 5,
+                    dx: Math.random() * 10 - 5,
+                    dy: Math.random() * 10 - 5,
+                    color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+                    gravity: 0.1
+                });
+            }
+            animateConfetti();
+        }
+
+        function animateConfetti() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((p, index) => {
+                p.x += p.dx;
+                p.y += p.dy;
+                p.dy += p.gravity; // Gravedad
+                ctx.fillStyle = p.color;
+                ctx.fillRect(p.x, p.y, p.w, p.h);
+
+                if(p.y > canvas.height) particles.splice(index, 1);
+            });
+
+            if(particles.length > 0) {
+                requestAnimationFrame(animateConfetti);
+            }
+        }
+
+        // Redimensionar canvas si cambia la ventana
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
     </script>
-  </body>
+</body>
 </html>
